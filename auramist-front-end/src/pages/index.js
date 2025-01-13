@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
+import Sobre from "@/components/sobre";
 
 export default function Home() {
   return (
@@ -37,8 +38,9 @@ export default function Home() {
       </div>
       <div className={styles.botoes}>
         <button className={styles.botaoP}>Entrar como Profissional</button>
-        <button className={styles.botaoC}>Entrar como<br/> Cliente</button>
+        <button className={styles.botaoC}>Entrar como<br /> Cliente</button>
       </div>
+      <Sobre />
     </>
   );
 }
