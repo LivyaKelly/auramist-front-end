@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Sobre from "@/components/sobre";
+import Rodape from "@/components/rodape";
 
 export default function Home() {
   return (
@@ -41,6 +42,7 @@ export default function Home() {
         <button className={styles.botaoC}>Entrar como<br /> Cliente</button>
       </div>
       <Sobre />
+      <Rodape />
     </>
   );
 }

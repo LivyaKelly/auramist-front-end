@@ -5,10 +5,10 @@ export default function Sobre() {
     return (
         <section className={styles.sobre}>
             <div className={styles.textos}>
-                <h1 className={styles.titulo}>Sobre o<br/> <span>Auramist</span></h1>
+                <h1 className={styles.titulo}>Sobre o<br /> <span>Auramist</span></h1>
                 <Image
                     src="/img/moldura.svg"
-                    alt="Logo do Auramist"
+                    alt="Moldura decorativa"
                     width={45}
                     height={45}
                     className={styles.moldura}
@@ -24,7 +24,7 @@ export default function Sobre() {
                 </p>
                 <Image
                     src="/img/moldura2.svg"
-                    alt="Logo do Auramist"
+                    alt="Moldura decorativa"
                     width={45}
                     height={45}
                     className={styles.moldura2}
@@ -33,7 +33,7 @@ export default function Sobre() {
             <div className={styles.imagemComTexto}>
                 <Image
                     src="/img/moldura.svg"
-                    alt="Logo do Auramist"
+                    alt="Moldura decorativa"
                     width={45}
                     height={45}
                     className={styles.moldura3}
@@ -46,7 +46,7 @@ export default function Sobre() {
                 </p>
                 <Image
                     src="/img/moldura2.svg"
-                    alt="Logo do Auramist"
+                    alt="Moldura decorativa"
                     width={45}
                     height={45}
                     className={styles.moldura4}
