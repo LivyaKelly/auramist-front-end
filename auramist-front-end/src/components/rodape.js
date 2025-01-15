@@ -13,7 +13,7 @@ export default function Rodape() {
                             alt="Logo do Auramist"
                             width={400}
                             height={200}
-                            className={styles.logo}
+                            className={styles.logoFooter}
                         />
                         <p className={styles.descricao}>
                             Com o Auramist, agendar serviços de beleza ficou mais simples e
