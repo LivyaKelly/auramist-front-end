@@ -1,0 +1,64 @@
+.barraLateral {
+    width: 240px;
+    height: 100vh;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed;
+  }
+  
+  .logo img {
+    width: 360px;
+    margin-top: -40px;
+    margin-bottom: -30px;
+    margin-left: -120px;
+  }
+
+  .pesquisa input {
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 12px;
+    border: 1px solid #e1ebf4;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    background-color: #A7C4E7;
+  }
+  
+  .navegacao ul {
+    list-style: none;
+  }
+  
+  .navegacao li {
+    display: flex;
+    align-items: center;
+    padding: 14px 8px;
+    cursor: pointer;
+    color: #45525f;
+    font-size: 16px;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .navegacao li:hover {
+    color: #A7C4E7;
+  }
+  
+  .icone {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  .sair {
+    display: flex;
+    align-items: center;
+    color: #1A1F24;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: auto;
+  }
+  
+  .sair:hover {
+    color: #A7C4E7;
+  }
