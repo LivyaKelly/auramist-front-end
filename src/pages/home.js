@@ -12,11 +12,11 @@ export default function Home() {
     const [filtroAtivo, setFiltroAtivo] = useState('Recommended');
 
     const servicos = [
-        { id: 1, tipo: 'Recommended', titulo: 'Corte de Cabelo', duracao: '45 mins', preco: '$90', imagem: '/img/s-cabelo.svg' },
-        { id: 2, tipo: 'Favoritos', titulo: 'Massagem', duracao: '60 mins', preco: '$60', imagem: '/img/s-massagem.svg' },
-        { id: 3, tipo: 'Promocoes', titulo: 'Corte de Cabelo', duracao: '45 mins', preco: '$80', imagem: '/img/s-cabelo.svg' },
-        { id: 4, tipo: 'Recommended', titulo: 'Massagem', duracao: '60 mins', preco: '$60', imagem: '/img/s-massagem.svg' },
-        { id: 5, tipo: 'Favoritos', titulo: 'Corte de Cabelo', duracao: '45 mins', preco: '$90', imagem: '/img/s-cabelo.svg' },
+        { id: 1, tipo: 'Recommended', titulo: 'Corte de Cabelo', duracao: '45 mins', preco: '$90', imagem: '/img/fotos/s-cabelo.svg' },
+        { id: 2, tipo: 'Favoritos', titulo: 'Massagem', duracao: '60 mins', preco: '$60', imagem: '/img/fotos/s-massagem.svg' },
+        { id: 3, tipo: 'Promocoes', titulo: 'Corte de Cabelo', duracao: '45 mins', preco: '$80', imagem: '/img/fotos/s-cabelo.svg' },
+        { id: 4, tipo: 'Recommended', titulo: 'Massagem', duracao: '60 mins', preco: '$60', imagem: '/img/fotos/s-massagem.svg' },
+        { id: 5, tipo: 'Favoritos', titulo: 'Corte de Cabelo', duracao: '45 mins', preco: '$90', imagem: '/img/fotos/s-cabelo.svg' },
     ];
 
     const servicosFiltrados = servicos.filter(servico => servico.tipo === filtroAtivo);
@@ -47,7 +47,7 @@ export default function Home() {
                     >
                         <div>
                             <Image
-                                src="/img/carrossel-1.svg"
+                                src="/img/fotos/carrossel-1.svg"
                                 alt="Encontre o melhor cabeleireiro para você"
                                 width={300}
                                 height={150}
@@ -56,7 +56,7 @@ export default function Home() {
                         </div>
                         <div>
                             <Image
-                                src="/img/carrossel-2.svg"
+                                src="/img/fotos/carrossel-2.svg"
                                 alt="Encontre os melhores produtos de beleza"
                                 width={300}
                                 height={150}
@@ -65,7 +65,7 @@ export default function Home() {
                         </div>
                         <div>
                             <Image
-                                src="/img/carrossel-1.svg"
+                                src="/img/fotos/carrossel-1.svg"
                                 alt="Descubra serviços incríveis perto de você"
                                 width={300}
                                 height={150}

@@ -1,15 +1,22 @@
-import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Sobre from "@/components/sobre";
 import Rodape from "@/components/rodape";
+import { useRouter } from 'next/router';
+
 
 export default function Home() {
+  const router = useRouter();
+
+  const goToLogin = () => {
+    router.push('/login'); 
+  };
+
   return (
     <>
       <div className={styles.logo}>
         <Image
-          src="/img/AURAMIST-Logo.svg"
+          src="/img/logos/AURAMIST-Logo.svg"
           alt="Auramist Logo"
           width={400}
           height={200}
@@ -18,14 +25,14 @@ export default function Home() {
       <div className={styles.mulher}>
         <Image
           className={styles.mulherMeditando}
-          src="/img/Mulher_meditando.svg"
+          src="/img/icons/Mulher_meditando.svg"
           alt="Mulher meditando"
           width={400}
           height={200}
         />
         <Image
           className={styles.elemento}
-          src="/img/Elemento-azul.svg"
+          src="/img/icons/Elemento-azul.svg"
           alt="Elemento azul"
           width={400}
           height={200}
@@ -39,7 +46,7 @@ export default function Home() {
       </div>
       <div className={styles.botoes}>
         <button className={styles.botaoP}>Entrar como Profissional</button>
-        <button className={styles.botaoC}>Entrar como<br /> Cliente</button>
+        <button onClick={goToLogin} className={styles.botaoC}>Entrar como<br /> Cliente</button>
       </div>
       <Sobre />
       <Rodape />

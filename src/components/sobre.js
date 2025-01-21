@@ -7,7 +7,7 @@ export default function Sobre() {
             <div className={styles.textos}>
                 <h1 className={styles.titulo}>Sobre o<br /> <span>Auramist</span></h1>
                 <Image
-                    src="/img/moldura.svg"
+                    src="/img/backgrounds/moldura.svg"
                     alt="Moldura decorativa"
                     width={45}
                     height={45}
@@ -23,7 +23,7 @@ export default function Sobre() {
                     acessível e confiável.
                 </p>
                 <Image
-                    src="/img/moldura2.svg"
+                    src="/img/backgrounds/moldura2.svg"
                     alt="Moldura decorativa"
                     width={45}
                     height={45}
@@ -32,7 +32,7 @@ export default function Sobre() {
             </div>
             <div className={styles.imagemComTexto}>
                 <Image
-                    src="/img/moldura.svg"
+                    src="/img/backgrounds/moldura.svg"
                     alt="Moldura decorativa"
                     width={45}
                     height={45}
@@ -45,14 +45,14 @@ export default function Sobre() {
                     de serviços, valorizando o cuidado, a confiança e a qualidade em cada atendimento.
                 </p>
                 <Image
-                    src="/img/moldura2.svg"
+                    src="/img/backgrounds/moldura2.svg"
                     alt="Moldura decorativa"
                     width={45}
                     height={45}
                     className={styles.moldura4}
                 />
                 <Image
-                    src="/img/sobre-foto.svg"
+                    src="/img/fotos/sobre-foto.svg"
                     alt="Foto de salão de beleza"
                     width={500}
                     height={350}
