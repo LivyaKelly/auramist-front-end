@@ -1,22 +1,39 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { signIn } from "next-auth/react";
 import Link from 'next/link';
 import Image from "next/image";
-import { useState } from 'react';
 import styles from '@/styles/login.module.css';
-import GoogleBtn from '@/components/buttons/GoogleBtn/GoogleBtn';
+import GoogleBtn from '@/components/buttons/GoogleBtn/googleBtn'
 
-export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default async function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log('Login com:', email, password);
-  };
+//   const handleLogin  = async (event) => {
+//     event.preventDefault();
+//     const email = event.target.email.value;
+//     const password = event.target.password.value;
+//   };
+
+//   const result = await signIn("credentials", {
+//     redirect: false,
+//     email,
+//     password,
+//     callbackUrl: "/home", // Redirecionar após login
+//   });
+
+//   if (result.error) {
+//     setError(result.error);
+//   } else {
+//     router.push(result.url);
+// };
 
   return (
     <div className={styles.loginContainer}>
@@ -27,30 +44,31 @@ export default function Login() {
             width={150}
             height={150}
                 />
-        <form onSubmit={handleLogin}>
+        {/* <form onSubmit={handleLogin}>
           <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className={styles.input}
+             name="email"
+             type="text"
+             placeholder="Digite o seu email"
+             className={styles.input}
           />
           <div className={styles.passwordField}>
             <input
+              name='password'
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
               className={styles.input}
             />
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className={styles.togglePassword}
+              className={styles.eyeButton}
             >
-              {showPassword ? 'Ocultar' : 'Mostrar'}
+              {showPassword ? (
+                <AiFillEyeInvisible size={20} />
+              ) : (
+                <AiFillEye size={20} />
+              )}
             </button>
           </div>
           <div className={styles.links}>
@@ -65,8 +83,9 @@ export default function Login() {
           <p className={styles.singinLink}>
             ou
           </p>
+          </form> */}
+        {error && <p className={styles.errorMessage}>{error}</p>}
           <GoogleBtn />
-        </form>
       </div>
     </div>
   );

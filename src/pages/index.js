@@ -4,11 +4,10 @@ import Sobre from "@/components/sobre";
 import Rodape from "@/components/rodape";
 import { useRouter } from 'next/router';
 
-
 export default function Home() {
   const router = useRouter();
 
-  const goToLogin = () => {
+  const goToLoginCli = () => {
     router.push('/login'); 
   };
 
@@ -46,7 +45,8 @@ export default function Home() {
       </div>
       <div className={styles.botoes}>
         <button className={styles.botaoP}>Entrar como Profissional</button>
-        <button onClick={goToLogin} className={styles.botaoC}>Entrar como<br /> Cliente</button>
+        <button onClick={goToLoginCli} className={styles.botaoC}>Entrar como<br /> Cliente</button>
+
       </div>
       <Sobre />
       <Rodape />

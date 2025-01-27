@@ -90,3 +90,27 @@
     text-decoration: none;
   }
   
+  .passwordField {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .passwordField input {
+    padding-right: 40px;
+  }
+  
+  .eyeButton {
+    position: absolute;
+    right: 10px;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .errorMessage {
+    color: red;
+    margin-top: 10px;
+  }

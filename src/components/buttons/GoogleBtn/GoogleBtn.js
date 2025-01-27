@@ -1,12 +1,13 @@
-"use client";
+'use client'
 import Image from "next/image";
-import styles from '@/components/buttons/GoogleBtn/GoogleBtn.module.css';
+import styles from '@/components/buttons/googleBtn/GoogleBtn.module.css';
+import { signIn } from "next-auth/react";
 
 
 export default function GoogleBtn() {
     return (
         <button
-            onClick={() => signIn("google", { callbackUrl: "/questionario" })}
+            onClick={() => signIn("google", { callbackUrl: "/home" })}
             className={styles['botao-google']}
             >
             <div className={styles['imagem-botao']}>
