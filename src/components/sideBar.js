@@ -1,12 +1,28 @@
 import styles from "@/styles/sideBar.module.css";
-import { FiFolder, FiBriefcase, FiHeart, FiUser, FiSettings, FiHelpCircle, FiLogOut, FiSearch } from "react-icons/fi";
+import {
+    FiFolder,
+    FiBriefcase,
+    FiHeart,
+    FiUser,
+    FiSettings,
+    FiHelpCircle,
+    FiLogOut,
+    FiSearch,
+} from "react-icons/fi";
 import { FaCalendarAlt } from "react-icons/fa";
+import Image from "next/image";
 
 export default function BarraLateral() {
     return (
         <div className={styles.barraLateral}>
             <div className={styles.logo}>
-                <img src="/img/AURAMIST-Logo.svg" alt="Logo Auramist" />
+                <Image
+                    src="/img/logos/AURAMIST-Logo.svg"
+                    alt="Logo do Auramist"
+                    width={100}
+                    height={170}
+                    className={styles.logoFooter}
+                />
             </div>
             <div className={styles.pesquisa}>
                 <input type="text" placeholder="Pesquisar..." />
@@ -42,4 +58,4 @@ export default function BarraLateral() {
             </div>
         </div>
     );
-};
+}

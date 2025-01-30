@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import Link from 'next/link';
 import Image from "next/image";
 import styles from '@/styles/login.module.css';
-import GoogleBtn from '@/components/buttons/GoogleBtn/googleBtn'
+import GoogleBtn from '@/components/buttons/GoogleBtn/GoogleBtn'
 
 export default async function Login() {
   const [showPassword, setShowPassword] = useState(false);

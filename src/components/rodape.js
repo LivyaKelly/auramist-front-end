@@ -9,7 +9,7 @@ export default function Rodape() {
                 <div className={styles.conteudo}>
                     <div className={styles.esquerda}>
                         <Image
-                            src="/img/logos/AURAMIST-Logo.svg"
+                            src="/img/logos/AURAMIST-Logo-Branca - Vetorizada.svg"
                             alt="Logo do Auramist"
                             width={400}
                             height={200}
