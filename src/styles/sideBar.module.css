@@ -1,7 +1,7 @@
 .barraLateral {
     width: 240px;
     height: 100vh;
-    background-color: #ebebeb;
+    background-color: #e3e6e9;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
