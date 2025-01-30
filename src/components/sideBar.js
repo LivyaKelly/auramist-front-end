@@ -11,8 +11,17 @@ import {
 } from "react-icons/fi";
 import { FaCalendarAlt } from "react-icons/fa";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 export default function BarraLateral() {
+    const router = useRouter();
+
+    const navigateToPerfil = () => {
+        router.push('/perfil');
+    };
+    const navigateToServicos = () => {
+        router.push('/home');
+    };
     return (
         <div className={styles.barraLateral}>
             <div className={styles.logo}>
@@ -35,13 +44,13 @@ export default function BarraLateral() {
                     <li>
                         <FaCalendarAlt className={styles.icone} /> Agendamento
                     </li>
-                    <li>
-                        <FiBriefcase className={styles.icone} /> Serviços
+                    <li onClick={navigateToServicos} className={styles.icone}>
+                        <FiUser className={styles.icone} /> Serviços
                     </li>
                     <li>
                         <FiHeart className={styles.icone} /> Favoritos
                     </li>
-                    <li>
+                    <li onClick={navigateToPerfil} className={styles.icone}>
                         <FiUser className={styles.icone} /> Perfil
                     </li>
                     <li>
