@@ -69,12 +69,18 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: transparent;
   color: #A7C4E7;
   width: 60%;
   height: 8vh;
   font-family: Poppins;
   font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.botaoP:hover {
+  background-color: #A7C4E7;
+  color: #fff;
 }
 
 .botaoC {
@@ -85,10 +91,18 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  background-color: #A7C4E7;
-  color: #fff;
+  background-color: transparent;
+  color: #A7C4E7;
   width: 60%;
   height: 7vh;
   font-family: Poppins;
   font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.botaoC:hover {
+  background-color: #A7C4E7;
+  color: #fff;
+}
+
+
