@@ -1,63 +1,76 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import { signIn } from "next-auth/react";
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
 import styles from '@/styles/login.module.css';
-import GoogleBtn from '@/components/buttons/GoogleBtn/GoogleBtn'
 
-export default async function Login() {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
   const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-//   const handleLogin  = async (event) => {
-//     event.preventDefault();
-//     const email = event.target.email.value;
-//     const password = event.target.password.value;
-//   };
+  const handleLogin = async (event) => {
+    event.preventDefault(); 
 
-//   const result = await signIn("credentials", {
-//     redirect: false,
-//     email,
-//     password,
-//     callbackUrl: "/home", // Redirecionar após login
-//   });
+    try {
+      const res = await fetch('http://localhost:3001/api/auth/login', {
+        method: 'POST',
+        credentials: 'include', 
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await res.json();
 
-//   if (result.error) {
-//     setError(result.error);
-//   } else {
-//     router.push(result.url);
-// };
+      if (!res.ok) {
+        setError(data.message || "Erro no login");
+      } else {
+        router.push("/home");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Erro ao efetuar login");
+    }
+  };
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.formContainer}>
+        {/* Exibe a logo */}
         <Image
-            src="/img/logos/Logo-vertical.svg"
-            alt="Auramist Logo"
-            width={150}
-            height={150}
-                />
-        {/* <form onSubmit={handleLogin}>
-          <input
+          src="/img/logos/Logo-vertical.svg"
+          alt="Auramist Logo"
+          width={150}
+          height={150}
+        />
+        {/* Formulário de login */}
+        <form onSubmit={handleLogin}>
+          <input 
              name="email"
-             type="text"
+             type="email"
              placeholder="Digite o seu email"
              className={styles.input}
+             value={email}
+             onChange={(e) => setEmail(e.target.value)}
           />
           <div className={styles.passwordField}>
             <input
-              name='password'
+              name="password"
               type={showPassword ? 'text' : 'password'}
-              placeholder="Password"
-              value={password}
+              placeholder="Senha"
               className={styles.input}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="button"
@@ -83,9 +96,8 @@ export default async function Login() {
           <p className={styles.singinLink}>
             ou
           </p>
-          </form> */}
+        </form>
         {error && <p className={styles.errorMessage}>{error}</p>}
-          <GoogleBtn />
       </div>
     </div>
   );
