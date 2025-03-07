@@ -6,8 +6,8 @@ import Image from 'next/image';
 import SideBar from '@/components/sideBar';
 import styles from '@/styles/servicos.module.css';
 
-const { Search } = Input;
-const { Meta } = Card;
+// const { Search } = Input;
+// const { Meta } = Card;
 
 export default function Home() {
   const router = useRouter();
@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <div className={styles.paginaContainer}>
       <SideBar />
-      <div className={styles.conteudoPrincipal}>
+      {/* <div className={styles.conteudoPrincipal}>
         <div className={styles.saudacaoCentralizada}>
           <p>Olá, <span className={styles.nomeDestaque}>{user.name}</span></p>
         </div>
@@ -144,9 +144,9 @@ export default function Home() {
                 />
               </Card>
             ))}
-          </div>
-        </div>
-      </div>
+          </div> */}
+        {/* </div>
+      </div> */}
     </div>
   );
 }
