@@ -19,7 +19,7 @@ export default function ListaServicos() {
 
     const fetchServicos = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/servicos');
+        const res = await fetch('http://localhost:3001/api/services');
         
         if (!res.ok) {
           throw new Error(`Erro ao buscar serviços: ${res.status} - ${res.statusText}`);
@@ -27,7 +27,7 @@ export default function ListaServicos() {
 
 
         const data = await res.json();
-        
+        console.log(data);
         
         if (Array.isArray(data)) {
           setServicos(data);
@@ -71,11 +71,13 @@ export default function ListaServicos() {
               }
             >
               <Meta
-                title={servico.titulo}
+                title={servico.name}
                 description={
                   <>
-                    <p>{servico.duracao}</p>
-                    <p>{servico.preco}</p>
+                    {/* <p>{servico.description}</p> */}
+                    <p>{servico.duration} mins</p>
+                    <p>$ {servico.price}</p>
+
                   </>
                 }
               />

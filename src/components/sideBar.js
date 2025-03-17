@@ -1,27 +1,19 @@
 import styles from "@/styles/sideBar.module.css";
-import {
-    FiFolder,
-    FiBriefcase,
-    FiHeart,
-    FiUser,
-    FiSettings,
-    FiHelpCircle,
-    FiLogOut,
-    FiSearch,
-} from "react-icons/fi";
+import { FiFolder, FiBriefcase, FiHeart, FiUser, FiLogOut } from "react-icons/fi";
 import { FaCalendarAlt } from "react-icons/fa";
 import Image from "next/image";
 import { useRouter } from 'next/router';
 
+
+
 export default function BarraLateral() {
     const router = useRouter();
 
-    const navigateToPerfil = () => {
-        router.push('/perfil');
+    const handleLogout = ( ) => {
+        router.push('/');
     };
-    const navigateToServicos = () => {
-        router.push('/home');
-    };
+
+
     return (
         <div className={styles.barraLateral}>
             <div className={styles.logo}>
@@ -33,38 +25,39 @@ export default function BarraLateral() {
                     className={styles.logoFooter}
                 />
             </div>
-            <div className={styles.pesquisa}>
-                <input type="text" placeholder="Pesquisar..." />
-            </div>
+
+
             <nav className={styles.navegacao}>
                 <ul>
-                    <li>
+                    <li className={`${styles.menuItem} ${router.pathname === "/reservas" ? styles.active : ""}`}
+                        onClick={() => router.push('/reservas')}>
                         <FiFolder className={styles.icone} /> Reservas
                     </li>
-                    <li>
+                    <li className={`${styles.menuItem} ${router.pathname === "/agendamento" ? styles.active : ""}`}
+                        onClick={() => router.push('/agendamento')}>
                         <FaCalendarAlt className={styles.icone} /> Agendamento
                     </li>
-                    <li onClick={navigateToServicos} className={styles.icone}>
-                        <FiUser className={styles.icone} /> Serviços
+                    <li className={`${styles.menuItem} ${router.pathname === "/home" ? styles.active : ""}`}
+                        onClick={() => router.push('/home')}>
+                        <FiBriefcase className={styles.icone} /> Serviços
                     </li>
-                    <li>
+                    <li className={`${styles.menuItem} ${router.pathname === "/favoritos" ? styles.active : ""}`}
+                        onClick={() => router.push('/favoritos')}>
                         <FiHeart className={styles.icone} /> Favoritos
                     </li>
-                    <li onClick={navigateToPerfil} className={styles.icone}>
+                    <li className={`${styles.menuItem} ${router.pathname === "/perfil" ? styles.active : ""}`}
+                        onClick={() => router.push('/perfil')}>
                         <FiUser className={styles.icone} /> Perfil
-                    </li>
-                    <li>
-                        <FiSettings className={styles.icone} /> Configurações
-                    </li>
-                    <li>
-                        <FiHelpCircle className={styles.icone} /> Ajuda
                     </li>
                 </ul>
             </nav>
-            <div className={styles.sair}>
+
+
+            <div className={styles.sair} onClick={handleLogout}>
                 <FiLogOut className={styles.icone} />
                 <span>Sair</span>
             </div>
         </div>
     );
+
 }

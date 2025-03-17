@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Input } from 'antd';
 import SideBar from '@/components/sideBar';
 import Carrossel from '@/components/carrossel';  
 import ListaServicos from '@/components/listaServicos';  
@@ -42,13 +41,11 @@ export default function Home() {
         <div className={styles.saudacaoCentralizada}>
           <p>Olá, <span className={styles.nomeDestaque}>{user ? user.name : 'Usuário'}</span></p>
         </div>
-        <div className={styles.cabecalho}>
-          <Input placeholder="Pesquisar..." className={styles.barraPesquisa} />
-        </div>
 
         <Carrossel />
         <ListaServicos />
       </div>
     </div>
   );
+  
 }
