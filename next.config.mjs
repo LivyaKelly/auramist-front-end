@@ -1,9 +1,7 @@
- /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    esmExternals: true,
-  },
+  reactStrictMode: false,
+  transpilePackages: ['@babel/runtime'], // transpila @babel/runtime (onde objectSpread2 vive) de ESM → CJS
 };
 
 export default nextConfig;

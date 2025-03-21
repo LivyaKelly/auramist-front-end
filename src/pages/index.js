@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/styles/home.module.css";
+import styles from "@/styles/dashboard.module.css";
 import Sobre from "@/components/sobre";
 import Rodape from "@/components/rodape";
 import { useRouter } from 'next/router';
