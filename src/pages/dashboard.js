@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import SideBar from '@/components/sideBar';
-import Carrossel from '@/components/carrossel';  
-import ListaServicos from '@/components/listaServicos';  
-import styles from '@/styles/servicos.module.css';
+import Carrossel from '@/components/carrossel';   
+import CardServicos from '@/components/cardServicos';
+import styles from '@/styles/dashboard.module.css';
 
 
-
-export default function Home() {
+export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,7 +42,7 @@ export default function Home() {
         </div>
 
         <Carrossel />
-        <ListaServicos />
+        <CardServicos />
       </div>
     </div>
   );

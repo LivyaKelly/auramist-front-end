@@ -1,8 +1,9 @@
 import Image from "next/image";
-import styles from "@/styles/dashboard.module.css";
+import styles from "@/styles/index.module.css";
 import Sobre from "@/components/sobre";
 import Rodape from "@/components/rodape";
 import { useRouter } from 'next/router';
+
 
 export default function Home() {
   const router = useRouter();
@@ -46,8 +47,8 @@ export default function Home() {
       <div className={styles.botoes}>
         <button className={styles.botaoP}>Entrar como Profissional</button>
         <button onClick={goToLoginCli} className={styles.botaoC}>Entrar como<br /> Cliente</button>
-
       </div>
+      
       <Sobre />
       <Rodape />
     </>

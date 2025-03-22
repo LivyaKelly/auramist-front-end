@@ -1,0 +1,15 @@
+.tituloServicos {
+    color: black; 
+    margin-bottom: 30px;
+}
+
+.listaServicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    gap: 70px;
+}
+
+.cartaoServico {
+    width: 200px; 
+    padding: 20px;
+}

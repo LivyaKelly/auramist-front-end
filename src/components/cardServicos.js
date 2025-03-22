@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card } from 'antd';
 import Image from 'next/image';
-import styles from '@/styles/servicos.module.css';
-
+import styles from '@/styles/cardServicos.module.css';
 
 
 const { Meta } = Card;
@@ -74,7 +73,6 @@ export default function ListaServicos() {
                 title={servico.name}
                 description={
                   <>
-                    {/* <p>{servico.description}</p> */}
                     <p>{servico.duration} mins</p>
                     <p>$ {servico.price}</p>
 
@@ -89,4 +87,5 @@ export default function ListaServicos() {
       </div>
     </div>
   );
+
 }

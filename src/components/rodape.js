@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/rodape.module.css";
 
+
 export default function Rodape() {
     return (
         <footer className={styles.rodape}>
@@ -23,11 +24,6 @@ export default function Rodape() {
                     </div>
 
                     <div className={styles.meio}>
-                        <div className={styles.linksNavegacao}>
-                            <h4>Início</h4>
-                            <h4>Sobre o Auramist</h4>
-                            <h4>Login</h4>
-                        </div>
                         <div className={styles.servicos}>
                             <h4>Serviços</h4>
                             <ul>

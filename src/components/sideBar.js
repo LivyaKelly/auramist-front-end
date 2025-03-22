@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from 'next/router';
 
 
-
 export default function BarraLateral() {
     const router = useRouter();
 
@@ -37,8 +36,8 @@ export default function BarraLateral() {
                         onClick={() => router.push('/agendamento')}>
                         <FaCalendarAlt className={styles.icone} /> Agendamento
                     </li>
-                    <li className={`${styles.menuItem} ${router.pathname === "/home" ? styles.active : ""}`}
-                        onClick={() => router.push('/home')}>
+                    <li className={`${styles.menuItem} ${router.pathname === "/dashboard" ? styles.active : ""}`}
+                        onClick={() => router.push('/dashboard')}>
                         <FiBriefcase className={styles.icone} /> Serviços
                     </li>
                     <li className={`${styles.menuItem} ${router.pathname === "/favoritos" ? styles.active : ""}`}

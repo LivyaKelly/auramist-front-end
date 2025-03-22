@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/sobre.module.css";
 
+
 export default function Sobre() {
     return (
         <section className={styles.sobre}>
