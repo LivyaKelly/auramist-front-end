@@ -10,22 +10,19 @@ export default function ListaServicos() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
 
-  
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const fetchServicos = async () => {
       try {
         const res = await fetch('http://localhost:3001/api/services');
-        
         if (!res.ok) {
           throw new Error(`Erro ao buscar serviços: ${res.status} - ${res.statusText}`);
         }
 
-
         const data = await res.json();
-        console.log(data);
-        
+        console.log('Serviços recebidos:', data);
+
         if (Array.isArray(data)) {
           setServicos(data);
         } else {
@@ -42,10 +39,8 @@ export default function ListaServicos() {
     fetchServicos();
   }, []);
 
-
   if (loading) return <p>Carregando serviços...</p>;
   if (error) return <p>Erro: {error}</p>; 
-
 
   return (
     <div className={styles.servicosContainer}>
@@ -59,10 +54,10 @@ export default function ListaServicos() {
               className={styles.cartaoServico}
               cover={
                 <Image
-                  src={servico.imagem}
-                  alt={servico.titulo}
-                  width={150}
-                  height={100}
+                  src={servico.urlImage}
+                  alt={servico.name}
+                  width={300}
+                  height={180}
                   className={styles.imagemCard}
                 />
               }
@@ -71,9 +66,8 @@ export default function ListaServicos() {
                 title={servico.name}
                 description={
                   <>
-                    <p>{servico.duration} mins</p>
-                    <p>$ {servico.price}</p>
-
+                    <p>{servico.duration} minutos</p>
+                    <p>R$ {servico.price.toFixed(2)}</p>
                   </>
                 }
               />
@@ -85,5 +79,5 @@ export default function ListaServicos() {
       </div>
     </div>
   );
-
+  
 }

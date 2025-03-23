@@ -35,7 +35,7 @@ export default function Login() {
       if (!res.ok) {
         setError(data.message || "Erro no login");
       } else {
-        router.push("/dashboard");
+        router.push("/cliente/dashboard");
       }
     } catch (err) {
       console.error(err);

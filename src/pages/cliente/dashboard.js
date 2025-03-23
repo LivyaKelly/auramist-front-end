@@ -30,6 +30,7 @@ export default function Dashboard() {
     fetchUser();
   }, [router]);
 
+
   if (loading) return <p>Carregando...</p>;
 
   return (

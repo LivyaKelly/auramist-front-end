@@ -36,16 +36,16 @@ export default function BarraLateral() {
                         onClick={() => router.push('/agendamento')}>
                         <FaCalendarAlt className={styles.icone} /> Agendamento
                     </li>
-                    <li className={`${styles.menuItem} ${router.pathname === "/dashboard" ? styles.active : ""}`}
-                        onClick={() => router.push('/dashboard')}>
+                    <li className={`${styles.menuItem} ${router.pathname === "/cliente/dashboard" ? styles.active : ""}`}
+                        onClick={() => router.push('/cliente/dashboard')}>
                         <FiBriefcase className={styles.icone} /> Serviços
                     </li>
                     <li className={`${styles.menuItem} ${router.pathname === "/favoritos" ? styles.active : ""}`}
                         onClick={() => router.push('/favoritos')}>
                         <FiHeart className={styles.icone} /> Favoritos
                     </li>
-                    <li className={`${styles.menuItem} ${router.pathname === "/perfil" ? styles.active : ""}`}
-                        onClick={() => router.push('/perfil')}>
+                    <li className={`${styles.menuItem} ${router.pathname === "/cliente/perfil" ? styles.active : ""}`}
+                        onClick={() => router.push('/cliente/perfil')}>
                         <FiUser className={styles.icone} /> Perfil
                     </li>
                 </ul>
