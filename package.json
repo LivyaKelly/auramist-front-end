@@ -13,6 +13,7 @@
     "@babel/runtime": "^7.26.9",
     "antd": "^5.23.1",
     "auramist-front-end": "file:",
+    "dayjs": "^1.11.13",
     "next": "^15.2.1",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
