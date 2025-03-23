@@ -9,20 +9,19 @@ import styles from '@/styles/dashboard.module.css';
 export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState(null);
+  const [firstName, setFirstName] = useState('');
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await fetch('http://localhost:3001/api/protected', { credentials: 'include' });
-        if (res.ok) {
-          const data = await res.json();
-          setUser({ id: data.userId, name: data.userName || 'Usuário' });
-        } else {
-          router.push('/login');
-        }
-      } catch (error) {
-        console.error(error);
+        if (!res.ok) return router.push('/login');
+  
+        const data = await res.json();
+        setUser(data);
+        setFirstName(data.name?.split(' ')[0] ?? 'Usuário');
+      } catch {
         router.push('/login');
       } finally {
         setLoading(false);
@@ -38,7 +37,7 @@ export default function Dashboard() {
       <SideBar />
       <div className={styles.conteudoPrincipal}>
         <div className={styles.saudacaoCentralizada}>
-          <p>Olá, <span className={styles.nomeDestaque}>{user ? user.name : 'Usuário'}</span></p>
+        <p>Olá, <span className={styles.nomeDestaque}>{firstName}</span></p>
         </div>
 
         <Carrossel />

@@ -39,7 +39,7 @@ export default function Cadastro() {
       if (!res.ok) {
         setError(data.message || "Erro no cadastro");
       } else {
-        router.push("/home");
+        router.push("/login");
       }
     } catch (err) {
       console.error(err);

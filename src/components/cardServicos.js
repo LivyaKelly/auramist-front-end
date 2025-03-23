@@ -3,9 +3,7 @@ import { Card } from 'antd';
 import Image from 'next/image';
 import styles from '@/styles/cardServicos.module.css';
 
-
 const { Meta } = Card;
-
 
 export default function ListaServicos() {
   const [servicos, setServicos] = useState([]); 
