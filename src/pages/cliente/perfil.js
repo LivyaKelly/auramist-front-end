@@ -1,83 +1,62 @@
-import React, { useEffect, useState } from "react";
-import Sidebar from "@/components/sideBar";
-import Image from 'next/image';
-import { useRouter } from "next/router";
-import { AiOutlineEdit, AiOutlineMessage } from 'react-icons/ai';
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
-import styles from "@/styles/perfil.module.css";
+import { useEffect, useState } from 'react';
+import styles from '@/styles/agendamentos.module.css';
+import { Card } from 'antd';
+import dayjs from 'dayjs';
+import SideBar from '@/components/sideBar';
 
-export default function Perfil() {
-    const router = useRouter();
-    const [user, setUser] = useState(null);
+export default function Agendamentos() {
+    const [agendamentos, setAgendamentos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [erro, setErro] = useState(null);
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const buscarAgendamentos = async () => {
             try {
-                const res = await fetch("http://localhost:3001/api/protected", {
-                    credentials: "include"
+                const res = await fetch('http://localhost:3001/api/appointments', {
+                    credentials: 'include',
                 });
-                if (!res.ok) return router.push("/login");
+
+                if (!res.ok) {
+                    throw new Error('Erro ao buscar agendamentos');
+                }
 
                 const data = await res.json();
-                setUser(data);
-            } catch (error) {
-                console.error("Erro ao buscar usuário:", error);
-                router.push("/login");
+                console.log('Resposta da API:', data); 
+                setAgendamentos(data.agendamentos);
+            } catch (err) {
+                setErro(err.message);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchUser();
-    }, [router]);
+        buscarAgendamentos();
+    }, []);
 
-    if (loading || !user) return <p style={{ padding: "2rem" }}>Carregando perfil...</p>;
+    if (loading) return <p>Carregando agendamentos...</p>;
+    if (erro) return <p>Erro: {erro}</p>;
 
     return (
-        <>
-            <Sidebar />
-            <div className={styles.profileContainer}>
-                <div className={styles.headerSection}>
-                    <div className={styles.profileImageWrapper}>
-                        <Image
-                            src="/img/fotos/unsplash_plsF6obTgms.png"
-                            alt="Profile"
-                            width={150}
-                            height={150}
-                            className={styles.profileImage}
-                        />
-                        <button className={styles.editButton}>
-                            <AiOutlineEdit className={styles.editIcon} />
-                        </button>
-                    </div>
-
-                    <div className={styles.infoSection}>
-                        <h1 className={styles.profileName}>{user.name}</h1>
-                        <div className={styles.ratingsMessage}>                            
-                            <button className={styles.messageButton}>
-                                <AiOutlineMessage className={styles.messageIcon} /> Mensagem
-                            </button>
-                        </div>
-                    </div>
+        <div className={styles.container}>
+            {/* <SideBar /> */}
+            <h2 className={styles.titulo}>Meus Agendamentos</h2>
+            {agendamentos.length === 0 ? (
+                <p>Você ainda não possui agendamentos.</p>
+            ) : (
+                <div className={styles.lista}>
+                    {agendamentos.map((agendamento) => (
+                        <Card key={agendamento.id} className={styles.card}>
+                            <h3>{agendamento.serviceName}</h3>
+                            <p><strong>Data:</strong> {dayjs(agendamento.date).format('DD/MM/YYYY')}</p>
+                            <p><strong>Horário:</strong> {agendamento.time}</p>
+                            <p><strong>Profissional:</strong> {agendamento.professionalName}</p>
+                            <p><strong>Duração:</strong> {agendamento.duration} minutos</p>
+                            <p><strong>Valor:</strong> (preço não disponível)</p>
+                        </Card>
+                    ))}
                 </div>
-
-                <div className={styles.tabNavigation}>
-                    <nav className={styles.tabs}>
-                        <a href="#about" className={`${styles.tabLink} ${styles.active}`}>
-                            <Image src="/img/icons/3171065 1.svg" alt="About Icon" width={23} height={20} className={styles.tabIcon} /> About
-                        </a>
-                    </nav>
-                </div>
-
-                <div id="about" className={styles.contactInfo}>
-                    <h3 className={styles.contactTitle}>Informação de Contato</h3>
-                    <ul className={styles.contactList}>
-                        <li className={styles.contactItem1}><FaPhoneAlt className={styles.contactIcon} />{user.phone || 'Telefone não informado'}</li>
-                        <li className={styles.contactItem3}><FaEnvelope className={styles.contactIcon} />{user.email}</li>
-                    </ul>
-                </div>
-            </div>
-        </>
+            )}
+        </div>
     );
+    
 }
