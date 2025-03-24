@@ -32,8 +32,8 @@ export default function BarraLateral() {
                         onClick={() => router.push('/reservas')}>
                         <FiFolder className={styles.icone} /> Reservas
                     </li>
-                    <li className={`${styles.menuItem} ${router.pathname === "/agendamento" ? styles.active : ""}`}
-                        onClick={() => router.push('/agendamento')}>
+                    <li className={`${styles.menuItem} ${router.pathname === "/cliente/agendamentos" ? styles.active : ""}`}
+                        onClick={() => router.push('/cliente/agendamentos')}>
                         <FaCalendarAlt className={styles.icone} /> Agendamento
                     </li>
                     <li className={`${styles.menuItem} ${router.pathname === "/cliente/dashboard" ? styles.active : ""}`}
